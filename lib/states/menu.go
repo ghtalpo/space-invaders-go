@@ -3,14 +3,14 @@ package states
 import (
 	"github.com/x-hgg-x/space-invaders-go/lib/math"
 
+	ec "github.com/ghtalpo/goecsengine/components"
+	m "github.com/ghtalpo/goecsengine/math"
+	"github.com/ghtalpo/goecsengine/states"
+	w "github.com/ghtalpo/goecsengine/world"
 	ecs "github.com/x-hgg-x/goecs/v2"
-	ec "github.com/x-hgg-x/goecsengine/components"
-	m "github.com/x-hgg-x/goecsengine/math"
-	"github.com/x-hgg-x/goecsengine/states"
-	w "github.com/x-hgg-x/goecsengine/world"
 
-	"github.com/hajimehoshi/ebiten"
-	"github.com/hajimehoshi/ebiten/inpututil"
+	"github.com/hajimehoshi/ebiten/v2"
+	"github.com/hajimehoshi/ebiten/v2/inpututil"
 )
 
 type menu interface {

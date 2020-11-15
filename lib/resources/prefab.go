@@ -1,6 +1,6 @@
 package resources
 
-import "github.com/x-hgg-x/goecsengine/loader"
+import "github.com/ghtalpo/goecsengine/loader"
 
 // MenuPrefabs contains menu prefabs
 type MenuPrefabs struct {

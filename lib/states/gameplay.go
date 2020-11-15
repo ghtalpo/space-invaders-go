@@ -9,15 +9,15 @@ import (
 	"github.com/x-hgg-x/space-invaders-go/lib/resources"
 	g "github.com/x-hgg-x/space-invaders-go/lib/systems"
 
+	ec "github.com/ghtalpo/goecsengine/components"
+	"github.com/ghtalpo/goecsengine/loader"
+	"github.com/ghtalpo/goecsengine/states"
+	"github.com/ghtalpo/goecsengine/utils"
+	w "github.com/ghtalpo/goecsengine/world"
 	ecs "github.com/x-hgg-x/goecs/v2"
-	ec "github.com/x-hgg-x/goecsengine/components"
-	"github.com/x-hgg-x/goecsengine/loader"
-	"github.com/x-hgg-x/goecsengine/states"
-	"github.com/x-hgg-x/goecsengine/utils"
-	w "github.com/x-hgg-x/goecsengine/world"
 
-	"github.com/hajimehoshi/ebiten"
-	"github.com/hajimehoshi/ebiten/inpututil"
+	"github.com/hajimehoshi/ebiten/v2"
+	"github.com/hajimehoshi/ebiten/v2/inpututil"
 )
 
 // GameplayState is the main game state
@@ -111,7 +111,8 @@ func (st *GameplayState) OnStop(world w.World) {
 }
 
 // Update method
-func (st *GameplayState) Update(world w.World, screen *ebiten.Image) states.Transition {
+// func (st *GameplayState) Update(world w.World, screen *ebiten.Image) states.Transition {
+func (st *GameplayState) Update(world w.World) states.Transition {
 	musicPlayer := (*world.Resources.AudioPlayers)["music"]
 	if !musicPlayer.IsPlaying() {
 		musicPlayer.Rewind()
@@ -146,4 +147,8 @@ func (st *GameplayState) Update(world w.World, screen *ebiten.Image) states.Tran
 	}
 
 	return states.Transition{}
+}
+
+// Draw method
+func (st *GameplayState) Draw(world w.World, screen *ebiten.Image) {
 }

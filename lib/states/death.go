@@ -5,15 +5,15 @@ import (
 	"github.com/x-hgg-x/space-invaders-go/lib/resources"
 	g "github.com/x-hgg-x/space-invaders-go/lib/systems"
 
+	ec "github.com/ghtalpo/goecsengine/components"
+	"github.com/ghtalpo/goecsengine/loader"
+	"github.com/ghtalpo/goecsengine/math"
+	"github.com/ghtalpo/goecsengine/states"
+	w "github.com/ghtalpo/goecsengine/world"
 	ecs "github.com/x-hgg-x/goecs/v2"
-	ec "github.com/x-hgg-x/goecsengine/components"
-	"github.com/x-hgg-x/goecsengine/loader"
-	"github.com/x-hgg-x/goecsengine/math"
-	"github.com/x-hgg-x/goecsengine/states"
-	w "github.com/x-hgg-x/goecsengine/world"
 
-	"github.com/hajimehoshi/ebiten"
-	"github.com/hajimehoshi/ebiten/inpututil"
+	"github.com/hajimehoshi/ebiten/v2"
+	"github.com/hajimehoshi/ebiten/v2/inpututil"
 )
 
 // DeathState is the player death state
@@ -51,7 +51,7 @@ func (st *DeathState) OnStop(world w.World) {
 }
 
 // Update method
-func (st *DeathState) Update(world w.World, screen *ebiten.Image) states.Transition {
+func (st *DeathState) Update(world w.World) states.Transition {
 	g.SoundSystem(world)
 
 	if st.playerAnimation.GetState().Type == ec.ControlStateDone {
@@ -73,6 +73,10 @@ func (st *DeathState) Update(world w.World, screen *ebiten.Image) states.Transit
 	}
 
 	return states.Transition{}
+}
+
+// Draw method
+func (st *DeathState) Draw(world w.World, screen *ebiten.Image) {
 }
 
 func resurrectPlayer(world w.World) {

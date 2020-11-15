@@ -6,13 +6,13 @@ import (
 	"github.com/x-hgg-x/space-invaders-go/lib/resources"
 	g "github.com/x-hgg-x/space-invaders-go/lib/systems"
 
+	"github.com/ghtalpo/goecsengine/loader"
+	"github.com/ghtalpo/goecsengine/states"
+	w "github.com/ghtalpo/goecsengine/world"
 	ecs "github.com/x-hgg-x/goecs/v2"
-	"github.com/x-hgg-x/goecsengine/loader"
-	"github.com/x-hgg-x/goecsengine/states"
-	w "github.com/x-hgg-x/goecsengine/world"
 
-	"github.com/hajimehoshi/ebiten"
-	"github.com/hajimehoshi/ebiten/inpututil"
+	"github.com/hajimehoshi/ebiten/v2"
+	"github.com/hajimehoshi/ebiten/v2/inpututil"
 )
 
 // DifficultyMenuState is the difficulty menu state
@@ -82,11 +82,15 @@ func (st *DifficultyMenuState) OnStop(world w.World) {
 }
 
 // Update method
-func (st *DifficultyMenuState) Update(world w.World, screen *ebiten.Image) states.Transition {
+func (st *DifficultyMenuState) Update(world w.World) states.Transition {
 	g.SoundSystem(world)
 
 	if inpututil.IsKeyJustPressed(ebiten.KeyEscape) {
 		return states.Transition{Type: states.TransSwitch, NewStates: []states.State{&MainMenuState{}}}
 	}
 	return updateMenu(st, world)
+}
+
+// Draw method
+func (st *DifficultyMenuState) Draw(world w.World, screen *ebiten.Image) {
 }

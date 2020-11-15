@@ -6,10 +6,10 @@ import (
 	gc "github.com/x-hgg-x/space-invaders-go/lib/components"
 	"github.com/x-hgg-x/space-invaders-go/lib/resources"
 
+	ec "github.com/ghtalpo/goecsengine/components"
+	"github.com/ghtalpo/goecsengine/utils"
+	w "github.com/ghtalpo/goecsengine/world"
 	ecs "github.com/x-hgg-x/goecs/v2"
-	ec "github.com/x-hgg-x/goecsengine/components"
-	"github.com/x-hgg-x/goecsengine/utils"
-	w "github.com/x-hgg-x/goecsengine/world"
 )
 
 // CollisionSystem manages collisions

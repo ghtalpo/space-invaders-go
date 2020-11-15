@@ -6,11 +6,11 @@ import (
 	gc "github.com/x-hgg-x/space-invaders-go/lib/components"
 	"github.com/x-hgg-x/space-invaders-go/lib/resources"
 
-	ec "github.com/x-hgg-x/goecsengine/components"
-	"github.com/x-hgg-x/goecsengine/loader"
-	w "github.com/x-hgg-x/goecsengine/world"
+	ec "github.com/ghtalpo/goecsengine/components"
+	"github.com/ghtalpo/goecsengine/loader"
+	w "github.com/ghtalpo/goecsengine/world"
 
-	"github.com/hajimehoshi/ebiten"
+	"github.com/hajimehoshi/ebiten/v2"
 )
 
 var spawnAlienMasterFrame = int(ebiten.DefaultTPS * 40 * rand.Float64())

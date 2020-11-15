@@ -1,8 +1,8 @@
 package components
 
 import (
+	"github.com/ghtalpo/goecsengine/math"
 	ecs "github.com/x-hgg-x/goecs/v2"
-	"github.com/x-hgg-x/goecsengine/math"
 )
 
 // Components contains references to all game components

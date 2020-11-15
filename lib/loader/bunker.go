@@ -7,15 +7,15 @@ import (
 	gc "github.com/x-hgg-x/space-invaders-go/lib/components"
 	"github.com/x-hgg-x/space-invaders-go/lib/resources"
 
+	ec "github.com/ghtalpo/goecsengine/components"
+	"github.com/ghtalpo/goecsengine/loader"
+	"github.com/ghtalpo/goecsengine/math"
+	"github.com/ghtalpo/goecsengine/utils"
+	w "github.com/ghtalpo/goecsengine/world"
 	ecs "github.com/x-hgg-x/goecs/v2"
-	ec "github.com/x-hgg-x/goecsengine/components"
-	"github.com/x-hgg-x/goecsengine/loader"
-	"github.com/x-hgg-x/goecsengine/math"
-	"github.com/x-hgg-x/goecsengine/utils"
-	w "github.com/x-hgg-x/goecsengine/world"
 
-	"github.com/hajimehoshi/ebiten"
-	"github.com/hajimehoshi/ebiten/ebitenutil"
+	"github.com/hajimehoshi/ebiten/v2"
+	"github.com/hajimehoshi/ebiten/v2/ebitenutil"
 	"github.com/pelletier/go-toml"
 )
 
@@ -39,7 +39,7 @@ func LoadBunkers(world w.World) []ecs.Entity {
 
 	// Load bunker image
 	bunkerImagePath := metadata.SpriteSheets.Bunker.TextureImageName
-	_, bunkerImage, err := ebitenutil.NewImageFromFile(bunkerImagePath, ebiten.FilterNearest)
+	_, bunkerImage, err := ebitenutil.NewImageFromFile(bunkerImagePath)
 	utils.LogError(err)
 
 	// Load bunker entities
@@ -55,8 +55,7 @@ func LoadBunkers(world w.World) []ecs.Entity {
 			utils.LogError(fmt.Errorf("pixel size must be the same for all bunkers"))
 		}
 	}
-	pixelImage, err := ebiten.NewImage(pixelSize, pixelSize, ebiten.FilterNearest)
-	utils.LogError(err)
+	pixelImage := ebiten.NewImage(pixelSize, pixelSize)
 	pixelImage.Fill(color.RGBA{0, 255, 0, 255})
 
 	// Create new bunker entities for each set of bunker pixels

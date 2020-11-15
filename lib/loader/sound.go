@@ -1,10 +1,10 @@
 package loader
 
 import (
-	"github.com/x-hgg-x/goecsengine/loader"
-	w "github.com/x-hgg-x/goecsengine/world"
+	"github.com/ghtalpo/goecsengine/loader"
+	w "github.com/ghtalpo/goecsengine/world"
 
-	"github.com/hajimehoshi/ebiten/audio"
+	"github.com/hajimehoshi/ebiten/v2/audio"
 )
 
 // LoadSounds loads music and sfx

@@ -3,11 +3,11 @@ package systems
 import (
 	gc "github.com/x-hgg-x/space-invaders-go/lib/components"
 
+	ec "github.com/ghtalpo/goecsengine/components"
+	w "github.com/ghtalpo/goecsengine/world"
 	ecs "github.com/x-hgg-x/goecs/v2"
-	ec "github.com/x-hgg-x/goecsengine/components"
-	w "github.com/x-hgg-x/goecsengine/world"
 
-	"github.com/hajimehoshi/ebiten"
+	"github.com/hajimehoshi/ebiten/v2"
 )
 
 // MoveBulletSystem moves bullet

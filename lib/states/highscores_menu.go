@@ -11,15 +11,15 @@ import (
 	"github.com/x-hgg-x/space-invaders-go/lib/math"
 	"github.com/x-hgg-x/space-invaders-go/lib/resources"
 
+	ec "github.com/ghtalpo/goecsengine/components"
+	"github.com/ghtalpo/goecsengine/loader"
+	"github.com/ghtalpo/goecsengine/states"
+	"github.com/ghtalpo/goecsengine/utils"
+	w "github.com/ghtalpo/goecsengine/world"
 	ecs "github.com/x-hgg-x/goecs/v2"
-	ec "github.com/x-hgg-x/goecsengine/components"
-	"github.com/x-hgg-x/goecsengine/loader"
-	"github.com/x-hgg-x/goecsengine/states"
-	"github.com/x-hgg-x/goecsengine/utils"
-	w "github.com/x-hgg-x/goecsengine/world"
 
-	"github.com/hajimehoshi/ebiten"
-	"github.com/hajimehoshi/ebiten/inpututil"
+	"github.com/hajimehoshi/ebiten/v2"
+	"github.com/hajimehoshi/ebiten/v2/inpututil"
 	"github.com/pelletier/go-toml"
 )
 
@@ -98,7 +98,7 @@ func (st *HighscoresState) OnStop(world w.World) {
 }
 
 // Update method
-func (st *HighscoresState) Update(world w.World, screen *ebiten.Image) states.Transition {
+func (st *HighscoresState) Update(world w.World) states.Transition {
 	if st.newScore != nil {
 		// Set highscore author
 		// Get user input
@@ -152,6 +152,10 @@ func (st *HighscoresState) Update(world w.World, screen *ebiten.Image) states.Tr
 		}
 	}
 	return states.Transition{}
+}
+
+// Update method
+func (st *HighscoresState) Draw(world w.World, screen *ebiten.Image) {
 }
 
 func (st *HighscoresState) displayHighScores(world w.World) bool {

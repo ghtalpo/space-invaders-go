@@ -4,7 +4,7 @@ import (
 	"github.com/x-hgg-x/space-invaders-go/lib/loader"
 	"github.com/x-hgg-x/space-invaders-go/lib/resources"
 
-	w "github.com/x-hgg-x/goecsengine/world"
+	w "github.com/ghtalpo/goecsengine/world"
 )
 
 // SoundSystem manages sound
